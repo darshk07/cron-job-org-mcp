@@ -1,0 +1,43 @@
+{
+  "name": "cronjob-org-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for the cron-job.org REST API — manage cron jobs, folders, and execution history from any MCP client.",
+  "type": "module",
+  "bin": {
+    "cronjob-org-mcp": "build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc && shx chmod +x build/index.js",
+    "watch": "tsc --watch",
+    "start": "node build/index.js",
+    "inspector": "npx @modelcontextprotocol/inspector node build/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "cron-job.org",
+    "cron",
+    "scheduler"
+  ],
+  "author": "Darsh Kejriwal",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darshkejriwal/cronjob-org-mcp.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "shx": "^0.3.4",
+    "typescript": "^5.7.2"
+  }
+}
