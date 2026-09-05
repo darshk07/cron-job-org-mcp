@@ -51,8 +51,11 @@ An [MCP](https://modelcontextprotocol.io) server for [cron-job.org](https://cron
 ```bash
 npm install
 npm run build
-npm run inspector   # launch the MCP Inspector against the built server
+cp .env.example .env   # then edit .env and paste in your API key
+npm run inspector      # launch the MCP Inspector against the built server
 ```
+
+The `.env` file is picked up automatically — no need to export environment variables in your shell. It's git-ignored, so your key never gets committed.
 
 ## License
 

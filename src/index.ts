@@ -1,15 +1,23 @@
 #!/usr/bin/env node
+import { config as loadDotenv } from "dotenv";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import { CronJobApiError, CronJobClient } from "./client.js";
 import type { DetailedJob } from "./types.js";
 
+// Loads a .env file if one is present (e.g. for local testing); has no
+// effect on variables an MCP client already injected via its own config.
+// quiet: true is required — dotenv's log line writes to stdout, which
+// would otherwise corrupt the MCP JSON-RPC stream on the stdio transport.
+loadDotenv({ quiet: true });
+
 const apiKey = process.env.CRONJOB_API_KEY;
 if (!apiKey) {
   console.error(
-    "Missing CRONJOB_API_KEY environment variable. Get an API key from " +
-      "https://console.cron-job.org/ (Settings > API) and set it before starting this server.",
+    "Missing CRONJOB_API_KEY. Get an API key from https://console.cron-job.org/ (Settings > API), " +
+      "then either set it in your MCP client config's `env`, or create a .env file here with:\n" +
+      "  CRONJOB_API_KEY=your-key-here",
   );
   process.exit(1);
 }
