@@ -26,8 +26,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/darshkejriwal/cronjob-org-mcp.git"
+    "url": "git+https://github.com/darshk07/cron-job-org-mcp.git"
   },
+  "bugs": {
+    "url": "https://github.com/darshk07/cron-job-org-mcp/issues"
+  },
+  "homepage": "https://github.com/darshk07/cron-job-org-mcp#readme",
   "engines": {
     "node": ">=18"
   },
